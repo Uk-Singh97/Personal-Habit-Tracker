@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galacticos Habits - Student Wellness Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Galacticos <span>Habits</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="routine.html">My Routine <span class="cart-badge" id="cartBadge">0</span></a></li>
+      <li><a href="pledge.html">Pledge</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="admin.html">Admin</a></li>
+      <li id="authLink"><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Build Better Daily Habits</h1>
+      <p>Explore curated wellness routines, track consistency, and commit to daily academic excellence.</p>
+    </section>
+
+    <div class="controls">
+      <input type="text" id="searchInput" class="search-input" placeholder="Search habits by keyword..." oninput="renderCatalogue()">
+      <div class="filter-pills">
+        <button class="pill active" data-cat="All" onclick="renderCatalogue('All')">All</button>
+        <button class="pill" data-cat="Study" onclick="renderCatalogue('Study')">Study</button>
+        <button class="pill" data-cat="Fitness" onclick="renderCatalogue('Fitness')">Fitness</button>
+        <button class="pill" data-cat="Health" onclick="renderCatalogue('Health')">Health</button>
+        <button class="pill" data-cat="Productivity" onclick="renderCatalogue('Productivity')">Productivity</button>
+      </div>
+    </div>
+
+    <section id="catalogueGrid" class="grid"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Galacticos Habit Hub | University Wellness Portal</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>window.addEventListener('DOMContentLoaded', () => renderCatalogue('All'));</script>
+</body>
+</html>

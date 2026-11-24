@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Reviews - Galacticos Habits</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Galacticos <span>Habits</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="routine.html">My Routine <span class="cart-badge" id="cartBadge">0</span></a></li>
+      <li><a href="pledge.html">Pledge</a></li>
+      <li><a href="reviews.html" class="active">Reviews</a></li>
+      <li><a href="admin.html">Admin</a></li>
+      <li id="authLink"><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Student Habit Feedback & Ratings</h1>
+      <p>Read real student reflections and rate habits that improved your academic focus.</p>
+    </section>
+
+    <div class="form-box" style="margin-bottom: 24px;">
+      <h3 style="margin-bottom: 12px; color: #0f172a;">Submit Your Habit Review</h3>
+      <form id="reviewForm" onsubmit="addReview(event)">
+        <div class="form-group">
+          <label for="revName">Your Name:</label>
+          <input type="text" id="revName" placeholder="e.g. Utkarsh Singh" required>
+        </div>
+        <div class="form-group">
+          <label for="revHabit">Habit Reviewed:</label>
+          <input type="text" id="revHabit" placeholder="e.g. DSA & Problem Solving" required>
+        </div>
+        <div class="form-group">
+          <label for="revRating">Rating (Stars):</label>
+          <select id="revRating">
+            <option value="5">★★★★★ (5 Stars - Exceptional)</option>
+            <option value="4">★★★★☆ (4 Stars - Highly Effective)</option>
+            <option value="3">★★★☆☆ (3 Stars - Average)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="revText">Your Feedback & Tips:</label>
+          <textarea id="revText" rows="3" placeholder="Share your experience or consistency tips..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Post Review</button>
+      </form>
+    </div>
+
+    <section id="reviewsGrid" class="grid"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Galacticos Habit Hub | University Wellness Portal</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>window.addEventListener('DOMContentLoaded', renderReviews);</script>
+</body>
+</html>

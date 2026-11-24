@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Active Routine - Galacticos Habits</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Galacticos <span>Habits</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="routine.html" class="active">My Routine <span class="cart-badge" id="cartBadge">0</span></a></li>
+      <li><a href="pledge.html">Pledge</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="admin.html">Admin</a></li>
+      <li id="authLink"><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>My Active Daily Routine</h1>
+      <p>Review your selected wellness habits before committing to your official goal pledge.</p>
+    </section>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Habit Name</th>
+          <th>Category</th>
+          <th>Daily Target</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="routineTableBody"></tbody>
+    </table>
+
+    <div id="routineSummary"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Galacticos Habit Hub | University Wellness Portal</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>window.addEventListener('DOMContentLoaded', renderRoutine);</script>
+</body>
+</html>

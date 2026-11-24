@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goal Pledge & Pass - Galacticos Habits</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Galacticos <span>Habits</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="routine.html">My Routine <span class="cart-badge" id="cartBadge">0</span></a></li>
+      <li><a href="pledge.html" class="active">Pledge</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="admin.html">Admin</a></li>
+      <li id="authLink"><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Student Goal Commitment</h1>
+      <p>Confirm your daily schedule to generate your official printable routine commitment voucher.</p>
+    </section>
+
+    <div class="form-box" id="pledgeFormBox">
+      <form id="pledgeForm" onsubmit="handleCommitment(event)">
+        <div class="form-group">
+          <label for="studentName">Full Name:</label>
+          <input type="text" id="studentName" placeholder="e.g. Utkarsh Singh" required>
+        </div>
+        <div class="form-group">
+          <label for="studentId">Student Registration / Roll ID:</label>
+          <input type="text" id="studentId" placeholder="e.g. 12304567" required>
+        </div>
+        <div class="form-group">
+          <label for="goalDuration">Commitment Duration:</label>
+          <select id="goalDuration">
+            <option value="21 Days (Habit Formation)">21 Days (Habit Formation)</option>
+            <option value="30 Days (Monthly Sprint)" selected>30 Days (Monthly Sprint)</option>
+            <option value="60 Days (Semester Discipline)">60 Days (Semester Discipline)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="reminderTime">Preferred Daily Time Window:</label>
+          <select id="reminderTime">
+            <option value="Early Morning (6:00 AM - 8:00 AM)">Early Morning (6:00 AM - 8:00 AM)</option>
+            <option value="Afternoon Study (2:00 PM - 5:00 PM)">Afternoon Study (2:00 PM - 5:00 PM)</option>
+            <option value="Evening Focus (6:00 PM - 9:00 PM)">Evening Focus (6:00 PM - 9:00 PM)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Generate Commitment Pass</button>
+      </form>
+
+      <div id="receiptBox" class="receipt" style="display: none;"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Galacticos Habit Hub | University Wellness Portal</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

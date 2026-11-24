@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Authentication - Galacticos Habits</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Galacticos <span>Habits</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="routine.html">My Routine <span class="cart-badge" id="cartBadge">0</span></a></li>
+      <li><a href="pledge.html">Pledge</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="admin.html">Admin</a></li>
+      <li id="authLink"><a href="login.html" class="active">Login</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Student Portal Authentication</h1>
+      <p>Log in with your university credentials or register a new account to save your routine.</p>
+    </section>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 700px; margin: 0 auto;">
+      <div class="card">
+        <h2 style="font-size: 1.25rem; margin-bottom: 12px; color: #0f172a;">Student Login</h2>
+        <form id="loginForm" onsubmit="handleAuth(event, 'login')">
+          <div class="form-group">
+            <label for="loginUser">Username:</label>
+            <input type="text" id="loginUser" placeholder="Enter username (e.g. demo)" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPass">Password:</label>
+            <input type="password" id="loginPass" placeholder="Enter password (e.g. 1234)" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2 style="font-size: 1.25rem; margin-bottom: 12px; color: #0f172a;">New Registration</h2>
+        <form id="regForm" onsubmit="handleAuth(event, 'reg')">
+          <div class="form-group">
+            <label for="regUser">Choose Username:</label>
+            <input type="text" id="regUser" placeholder="Choose unique username" required>
+          </div>
+          <div class="form-group">
+            <label for="regPass">Create Password:</label>
+            <input type="password" id="regPass" placeholder="Create strong password" required>
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Galacticos Habit Hub | University Wellness Portal</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

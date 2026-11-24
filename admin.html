@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin CRUD - Galacticos Habits</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Galacticos <span>Habits</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="routine.html">My Routine <span class="cart-badge" id="cartBadge">0</span></a></li>
+      <li><a href="pledge.html">Pledge</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="admin.html" class="active">Admin</a></li>
+      <li id="authLink"><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Habit Master Catalogue Admin</h1>
+      <p>Administrative management: Add new wellness items or delete outdated entries.</p>
+    </section>
+
+    <div class="form-box" style="margin-bottom: 24px;">
+      <h3 style="margin-bottom: 12px; color: #0f172a;">Add New Catalogue Habit</h3>
+      <form id="addHabitForm" onsubmit="addAdminHabit(event)">
+        <div class="form-group"><label for="admName">Habit Title:</label><input type="text" id="admName" placeholder="e.g. Speed Reading & Notes" required></div>
+        <div class="form-group" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div><label for="admCategory">Category:</label><select id="admCategory"><option value="Study">Study</option><option value="Fitness">Fitness</option><option value="Health">Health</option><option value="Productivity">Productivity</option></select></div>
+          <div><label for="admPriority">Priority:</label><select id="admPriority"><option value="High">High</option><option value="Medium" selected>Medium</option><option value="Low">Low</option></select></div>
+        </div>
+        <div class="form-group"><label for="admTime">Daily Duration:</label><input type="text" id="admTime" placeholder="e.g. 25 mins" required></div>
+        <div class="form-group"><label for="admDesc">Short Description:</label><input type="text" id="admDesc" placeholder="Brief benefit summary..." required></div>
+        <button type="submit" class="btn btn-primary btn-block">Add to Master Catalogue</button>
+      </form>
+    </div>
+
+    <table>
+      <thead><tr><th>#</th><th>Habit Name</th><th>Category</th><th>Details</th><th>Action</th></tr></thead>
+      <tbody id="adminTableBody"></tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Galacticos Habit Hub | University Wellness Portal</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>window.addEventListener('DOMContentLoaded', renderAdminTable);</script>
+</body>
+</html>
