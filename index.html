@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Habit Tracker - Team Galacticos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header-container">
+      <h1>Personal Habit Tracker</h1>
+      <p class="subtitle">CSE 326 Web Project | Team Galacticos</p>
+    </div>
+    <div id="userBar" class="user-bar" style="display: none;">
+      <span>Welcome, <strong id="userNameDisplay">User</strong>!</span>
+      <button id="logoutBtn" class="btn-logout" onclick="logoutUser()">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- User Authentication Section (Login & Registration) -->
+    <section id="authSection" class="card">
+      <h2 id="authTitle">User Login</h2>
+      <p id="authSubtitle" style="color: #666; margin-bottom: 15px;">Login with your username & password to access your habits.</p>
+      <form id="authForm" onsubmit="handleAuth(event)">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" placeholder="Enter username (e.g. Utkarsh)" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" id="authSubmitBtn" class="btn btn-primary">Login</button>
+        <button type="button" id="toggleAuthBtn" class="btn btn-secondary" onclick="toggleAuthMode()">Create New Account</button>
+      </form>
+    </section>
+
+    <!-- Main Habit Tracker App (Visible after Login) -->
+    <section id="appSection" style="display: none;">
+      
+      <!-- Dashboard Summary -->
+      <div class="dashboard">
+        <div class="stat-box">
+          <h3 id="totalCount">0</h3>
+          <p>Total Habits</p>
+        </div>
+        <div class="stat-box">
+          <h3 id="completedCount">0</h3>
+          <p>Completed</p>
+        </div>
+        <div class="stat-box">
+          <h3 id="pendingCount">0</h3>
+          <p>Pending</p>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-info">
+          <span>Overall Daily Progress:</span>
+          <strong id="progressPercent">0%</strong>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progressBar" class="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <!-- Add / Edit Habit Form -->
+      <div class="card">
+        <h2 id="formTitle">Add New Habit</h2>
+        <form id="habitForm" onsubmit="saveHabit(event)">
+          <input type="hidden" id="editIndex" value="-1">
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="habitTitle">Habit Name:</label>
+              <input type="text" id="habitTitle" placeholder="e.g. Morning Jog, Read 10 Pages" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="habitCategory">Category:</label>
+              <select id="habitCategory">
+                <option value="Health">Health</option>
+                <option value="Study">Study</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Productivity">Productivity</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="habitPriority">Priority:</label>
+              <select id="habitPriority">
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="habitSchedule">Schedule / Frequency:</label>
+              <select id="habitSchedule">
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Weekdays">Weekdays</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-primary">Add Habit</button>
+          <button type="button" id="cancelBtn" class="btn btn-secondary" style="display: none;" onclick="cancelEdit()">Cancel Edit</button>
+        </form>
+      </div>
+
+      <!-- Search and Filter Bar -->
+      <div class="filter-bar">
+        <input type="text" id="searchInput" placeholder="Search habits..." oninput="renderHabits()">
+        <select id="filterCategory" onchange="renderHabits()">
+          <option value="All">All Categories</option>
+          <option value="Health">Health</option>
+          <option value="Study">Study</option>
+          <option value="Fitness">Fitness</option>
+          <option value="Productivity">Productivity</option>
+        </select>
+        <select id="filterStatus" onchange="renderHabits()">
+          <option value="All">All Status</option>
+          <option value="Completed">Completed</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
+
+      <!-- Habits List -->
+      <div id="habitList" class="habit-list">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Personal Habit Tracker | Developed by <strong>Team Galacticos</strong></p>
+    <p>CSE 326: Internet Programming / Web Technologies</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
